@@ -14,5 +14,9 @@ apikey="yourAPIkey:APIsecret"
 
 
 
+
+
+
 如果你的網域不是跟godaddy買的
+
 出口在那邊 謝謝

@@ -1,12 +1,6 @@
 #!/bin/bash
-#v1.5 by bobo3769
-echo "         ____  ____  _   _______"
-echo "        / __ \/ __ \/ | / / ___/"
-echo "       / / / / / / /  |/ /\__ \ "
-echo "      / /_/ / /_/ / /|  /___/ / "
-echo "     /_____/_____/_/ |_//____/  "
-echo "                      on godaddy"
-echo "                                "
+#v1.6 by bobo3769
+
 
 #============================================#
 #                  ╔═╗╔═╗╔╦╗                 #
@@ -46,6 +40,13 @@ againtime=60m
 #DO NOT CHANGE anything after this line if you dont know what you do
 #在這行之後別碰我呀 除非你清楚你正在做什麼
 
+echo "         ____  ____  _   _______"
+echo "        / __ \/ __ \/ | / / ___/"
+echo "       / / / / / / /  |/ /\__ \ "
+echo "      / /_/ / /_/ / /|  /___/ / "
+echo "     /_____/_____/_/ |_//____/  "
+echo "                      on godaddy"
+echo "                                "
 
 # loop
 while [ 1 = 1 ]
@@ -56,41 +57,41 @@ while [ 1 = 1 ]
      dnsip=`echo $dnsget | cut -d ',' -f 1 | tr -d '"' | cut -d ":" -f 2`
 
      #say
-	         echo "    ________________________________________  "
-	         echo "  / \                                       \ "
-			 echo " |   |            DDNS on godaddy           | "
-	         echo "  \_ |  Domain:   $hostname.$domain"
-	         echo "     |                                      | "
-			 echo "     |  Myip is $myip "
-             echo "     |                                      | "
-	         echo "     |  DNS record is $dnsip "
-	         echo "     |                                      | "
-             echo "     |                                      | "
+	 echo "    ________________________________________  "
+         echo "  / \                                       \ "
+	 echo " |   |            DDNS on godaddy           | "
+         echo "  \_ |  Domain:   $hostname.$domain"
+         echo "     |                                      | "
+	 echo "     |  Myip is $myip "
+         echo "     |                                      | "
+         echo "     |  DNS record is $dnsip "
+         echo "     |                                      | "
+         echo "     |                                      | "
 
      #put
      if [ "$myip" = "$dnsip" ]
          then
-		     echo "     |                                      | "
-			 echo "     |  Nothing Change.                     | "
-			 echo "     |                                      | "
+         echo "     |                                      | "
+	 echo "     |  Nothing Change.                     | "
+	 echo "     |                                      | "
          else
              curl -s -X PUT "https://api.godaddy.com/v1/domains/${domain}/records/A/${hostname}" -H "Authorization: sso-key ${apikey}" -H "Content-Type: application/json" -d "[{\"data\": \"${myip}\"}]"
-		     echo "     |                                      | "
-			 echo "     |   IP record change!                  | "
-			 echo "     |                                      | "
+	echo "     |                                      | "
+	echo "     |   IP record change!                  | "
+	echo "     |                                      | "
 	 fi
 	 #time
-	         echo "     |   waitting for "$againtime""
-			 echo "     |                                      | "
-			 y=`date +%Y`
-			 m=`date +%m`
-			 d=`date +%d`
-			 hr=`date +%H`
-			 min=`date +%M`
-			 sec=`date +%S`
-			 echo "     |              $y/$m/$d  $hr:$min:$sec"
-			 echo "     |   ___________________________________|___ "
-			 echo "     |  /                                      / "
-			 echo "     \_/______________________________________/ "
+	echo "     |   waitting for "$againtime""
+	echo "     |                                      | "
+	y=`date +%Y`
+	m=`date +%m`
+	d=`date +%d`
+	hr=`date +%H`
+	min=`date +%M`
+	sec=`date +%S`
+	echo "     |              $y/$m/$d  $hr:$min:$sec"
+	echo "     |   ___________________________________|___ "
+	echo "     |  /                                      / "
+	echo "     \_/______________________________________/ "
      sleep $againtime
 done

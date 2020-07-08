@@ -83,12 +83,12 @@ while [ 1 = 1 ]
 	 #time
 	echo "     |   waitting for "$againtime""
 	echo "     |                                      | "
-	y=`date +%Y`
-	m=`date +%m`
-	d=`date +%d`
-	hr=`date +%H`
-	min=`date +%M`
-	sec=`date +%S`
+		y=`date +%Y`
+		m=`date +%m`
+		d=`date +%d`
+		hr=`date +%H`
+		min=`date +%M`
+		sec=`date +%S`
 	echo "     |              $y/$m/$d  $hr:$min:$sec"
 	echo "     |   ___________________________________|___ "
 	echo "     |  /                                      / "
